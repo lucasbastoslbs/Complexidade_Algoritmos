@@ -45,8 +45,6 @@ public class Programa extends JFrame {
 	
 	 private XYDataset createDataset() {
 		 
-		 Principal p = new Principal();
-		 Heapsort h = new Heapsort();
 		 XYSeries series = new XYSeries("bubblesort");
 	        /*series.add(18, 567);
 	        series.add(20, 612);
@@ -56,7 +54,7 @@ public class Programa extends JFrame {
 	        series.add(50, 2350);*/
 		 
 		 
-		 long t[] = p.executeBubble();
+		 long t[] = new Principal().executeBubble();
 		 for(int x=0;x<t.length;x++) {
 			 series.add(x,t[x]);
 		 }
@@ -65,14 +63,14 @@ public class Programa extends JFrame {
         dataset.addSeries(series);
         series = new XYSeries("heapsort");
         
-		t = h.execute();
+		t = new Heapsort().execute();
 		for(int x=0;x<t.length;x++) {
 			series.add(x,t[x]); 
 		}
 		dataset.addSeries(series);
 		
 		series = new XYSeries("selectionsort");
-		t = p.executeSelection();
+		t = new Principal().executeSelection();
 		for(int x=0;x<t.length;x++) {
 			series.add(x,t[x]); 
 		}
